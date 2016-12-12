@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenTok Hello World</title>
+</head>
+<body>
+    <div id="publisher"></div>
+    <div id="subscribers"></div>
+
+    <button onclick="initVideoRecording()">INIT RECORDING VIDEO </button>
+    <button onclick="stopVideoRecording()">STOP RECORDING VIDEO </button>
+
+
+
+</body>
+
+    <script src="//static.opentok.com/webrtc/v2.2/js/TB.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        var apiKey = '<%= apiKey %>';
+        var sessionId = '<%= sessionId %>';
+        var token = '<%= token %>';
+    </script>
+    <script src="/js/script.js"></script>
+</html>
