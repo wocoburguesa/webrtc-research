@@ -1,12 +1,12 @@
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var app = express();
-var ot = require('opentok');
+var OpenTok = require('opentok');
 
 var apiKey = '45733562';
 var apiSecret = '8855ef0d488ba92cce093580908e1aa726ec5048';
 
-ot = new OpenTok(apiKey, apiSecret);
+var ot = new OpenTok(apiKey, apiSecret);
 
 app.set('port', (process.env.PORT || 5000));
 
