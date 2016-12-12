@@ -35,13 +35,50 @@ function record() {
     $.ajax({
         method: "POST",
         url: "https://krowdy-testing.herokuapp.com/record",
-        data: {
+//        url: "http://localhost:5000/record",
+        data: JSON.stringify({
             sessionId: sessionId
-        }
+        }),
+        contentType: 'application/json; charset=utf-8'
+    })
+        .done(function(data) {
+            window.archive = data;
+        });
+}
+
+function stopRecording() {
+    $.ajax({
+        method: "POST",
+        url: "https://krowdy-testing.herokuapp.com/stop-recording",
+//        url: "http://localhost:5000/stop-recording",
+        data: JSON.stringify({
+            archiveId: window.archive && window.archive.id
+        }),
+        contentType: 'application/json; charset=utf-8'
     })
         .done(function( msg ) {
             console.log(msg);
         });
-    return;
+}
 
+function list() {
+    $.ajax({
+        method: "GET",
+        url: "https://krowdy-testing.herokuapp.com/list",
+//        url: "http://localhost:5000/list"
+    })
+        .done(function(data) {
+            console.log(data);
+        });
+}
+
+function clearAll() {
+    $.ajax({
+        method: "POST",
+        url: "https://krowdy-testing.herokuapp.com/clear-all",
+//        url: "http://localhost:5000/clear-all"
+    })
+        .done(function(data) {
+            console.log(data);
+        });
 }
