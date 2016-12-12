@@ -1,6 +1,12 @@
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var app = express();
+var ot = require('opentok');
+
+var apiKey = '45733562';
+var apiSecret = '8855ef0d488ba92cce093580908e1aa726ec5048';
+
+ot = new OpenTok(apiKey, apiSecret);
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -28,6 +34,18 @@ app.post('/jwt', function(request, response) {
         });
 
     });
+});
+
+app.post('/record', function(request, response) {
+    var body = request.body;
+
+    ot.startArchive(
+        body.sessionId,
+        { name: 'Test' },
+        function (err, archive) {
+            response.json(archive);
+        }
+    );
 });
 
 app.listen(app.get('port'), function() {

@@ -20,7 +20,8 @@
   "dependencies": {
     "ejs": "^2.5.5",
     "express": "^4.14.0",
-    "jsonwebtoken": "^7.2.1"
+    "jsonwebtoken": "^7.2.1",
+    "opentok": "^2.4.0"
   },
   "buildpacks": [
     {

@@ -34,12 +34,13 @@ function sendRecordRequest(jwt) {
 function record() {
     $.ajax({
         method: "POST",
-        url: "https://krowdy-testing.herokuapp.com/jwt",
-        data: {}
+        url: "https://krowdy-testing.herokuapp.com/record",
+        data: {
+            sessionId: sessionId
+        }
     })
         .done(function( msg ) {
             console.log(msg);
-            sendRecordRequest(msg.jwt);
         });
     return;
 
