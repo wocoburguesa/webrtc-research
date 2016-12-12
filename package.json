@@ -1,0 +1,24 @@
+{
+  "name": "webrtc-research",
+  "version": "1.0.0",
+  "description": "Currently testing:",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wocoburguesa/webrtc-research.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wocoburguesa/webrtc-research/issues"
+  },
+  "homepage": "https://github.com/wocoburguesa/webrtc-research#readme",
+  "dependencies": {
+    "ejs": "^2.5.5",
+    "express": "^4.14.0"
+  }
+}
