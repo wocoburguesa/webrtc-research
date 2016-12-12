@@ -1,6 +1,6 @@
 var apiKey = '45733562';
-var sessionId = '2_MX40NTczMzU2Mn5-MTQ4MTUwNjMzNjE2OX5NdkV0N3dMMjBIbnJRYmhLZ0JYSkpaYmV-fg';
-var token = 'T1==cGFydG5lcl9pZD00NTczMzU2MiZzaWc9YWI0NzkyNDA4ZmM1NDI4ZGEzNzA5MjNjMWNmMzRkMDJjZTU0MTA0NTpzZXNzaW9uX2lkPTJfTVg0ME5UY3pNelUyTW41LU1UUTRNVFV3TmpNek5qRTJPWDVOZGtWME4zZE1NakJJYm5KUlltaExaMEpZU2twYVltVi1mZyZjcmVhdGVfdGltZT0xNDgxNTA2MzQ0Jm5vbmNlPTAuMzExODEyNTU2Njg0MTAwOCZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDgxNTA5OTQ0';
+var sessionId = '1_MX40NTczMzU2Mn5-MTQ4MTUwOTIxMzM5OX5TNjZCbDJUNHhsMVJ0QmN2Wkd0RHpIckN-fg';
+var token = 'T1==cGFydG5lcl9pZD00NTczMzU2MiZzaWc9YjkyODAzMzYzMjEwNzMxYjNjMTUzYWYxNjc1ZDY0YWViYzg3ZTIzMTpzZXNzaW9uX2lkPTFfTVg0ME5UY3pNelUyTW41LU1UUTRNVFV3T1RJeE16TTVPWDVUTmpaQ2JESlVOSGhzTVZKMFFtTjJXa2QwUkhwSWNrTi1mZyZjcmVhdGVfdGltZT0xNDgxNTA5MjQ0Jm5vbmNlPTAuNTIyNDkxNzUyODQ2MDMyNyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDgxNTk1NjQz';
 
 var session = OT.initSession(apiKey, sessionId)
     .on('streamCreated', function(event) {
@@ -11,7 +11,7 @@ var session = OT.initSession(apiKey, sessionId)
         session.publish(publisher);
     });
 
-function record() {
+function sendRecordRequest(jwt) {
     $.ajax({
         method: "POST",
         url: "https://api.opentok.com/v2/project/" + apiKey + "/archive",
@@ -21,9 +21,26 @@ function record() {
             hasVideo: true,
             name: 'test_video',
             outputMode: 'composed'
+        },
+        headers: {
+            'X-OPENTOK-AUTH': jwt
         }
     })
         .done(function( msg ) {
             console.log(msg);
         });
+}
+
+function record() {
+    $.ajax({
+        method: "POST",
+        url: "http://localhost:5000/jwt",
+        data: {}
+    })
+        .done(function( msg ) {
+            console.log(msg);
+            sendRecordRequest(msg.jwt);
+        });
+    return;
+
 }
