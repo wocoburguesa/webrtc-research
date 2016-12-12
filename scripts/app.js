@@ -34,7 +34,7 @@ function sendRecordRequest(jwt) {
 function record() {
     $.ajax({
         method: "POST",
-        url: "http://localhost:5000/jwt",
+        url: "https://krowdy-testing.herokuapp.com/jwt",
         data: {}
     })
         .done(function( msg ) {
