@@ -103,8 +103,10 @@ app.get('/list', function (request, response) {
 
             console.log(totalCount + " archives");
             for (var i = 0; i < archives.length; i++) {
-                console.log(archives[i].id);
+                console.log(archives[i]);
             }
+
+            response.json(archives);
         });
 });
 
