@@ -52,7 +52,8 @@ function stopRecording() {
         url: "https://krowdy-testing.herokuapp.com/stop-recording",
 //        url: "http://localhost:5000/stop-recording",
         data: JSON.stringify({
-            archiveId: window.archive && window.archive.id
+//            archiveId: window.archive && window.archive.id
+            archiveId: 'a778e8f6-b136-4179-8c61-db054a00ec6a'
         }),
         contentType: 'application/json; charset=utf-8'
     })
